@@ -1,0 +1,14 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+requests==2.32.3
+
+# LangChain + RAG stack
+langchain==0.3.0
+langchain-community==0.3.0
+chromadb==0.5.3
+hnswlib==0.8.0
+sentence-transformers==3.1.1
+
+# Document loaders
+PyMuPDF
+markdown==3.7

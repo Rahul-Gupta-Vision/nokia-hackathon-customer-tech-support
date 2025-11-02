@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  nokia-hackathon:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nokia-hackathon-gpu
+    ports:
+      - "8888:8888"   # Expose Jupyter Notebook
+    volumes:
+      - .:/app        # Mount your current project directory
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1
+    command: 
+      jupyter notebook --ip=0.0.0.0 --port=8888
+      --no-browser --allow-root
