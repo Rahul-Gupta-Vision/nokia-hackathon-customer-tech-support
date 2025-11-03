@@ -7,7 +7,6 @@ The **Customer Tech Support Assistant** is an intelligent AI-powered chatbot des
 
 ## 🏗️ System Architecture
 
-![System Architecture](./assets/architecture.png)
 
 The system is composed of the following layers:
 
@@ -108,7 +107,6 @@ You’ll see the login window — after authentication, you can start interactin
 | **Backend** | Python (Flask / FastAPI) |
 | **AI Model Layer** | Ollama + Mistral LLM |
 | **Vector Database** | ChromaDB |
-| **Authentication** | JWT |
 | **Data Sources** | Provisioning Docs, Troubleshooting Docs, Standards, JIRA DB |
 | **Package Manager** | npm, pip |
 
