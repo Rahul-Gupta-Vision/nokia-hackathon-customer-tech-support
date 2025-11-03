@@ -9,7 +9,7 @@ This macro retrieves lbm series test output.
 - CFM maintenance domain and group must be created.
 - lbm series test must be completed.
 
-### Altiplano Macro
+### Macro
 **Macro ID:** `unicast-protocols-cfm-lbm-series-retrieve`
 
 ### Parameters
@@ -21,7 +21,7 @@ This macro retrieves lbm series test output.
 ### vCLI Example
 unicast-protocols-cfm-lbm-series-retrieve device-id <device> maintenance-group-id MG mep-id 8191
 
-### Lightspan RPC
+### RPC
 <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
   <get>
     <filter type="subtree">
@@ -46,7 +46,7 @@ This macro retrieves linktrace series test output.
 - CFM maintenance domain and group must be created.
 - linktrace test must be completed.
 
-### Altiplano macro
+### macro
 **Macro id:** unicast-protocols-cfm-linktrace-retrieve
 
 ### Parameters
@@ -58,7 +58,7 @@ This macro retrieves linktrace series test output.
 ### vCLI Example
 unicast-protocols-cfm-linktrace-retrieve device-id <device> maintenance-group-id MG mep-id 8191
 
-### Lightspan RPC
+### RPC
 <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
   <get>
     <filter type="subtree">
@@ -83,7 +83,7 @@ This macro initiates the linktrace series test.
 ### Prerequisites
 - CFM maintenance domain and group must be created along with MEP.
 
-### Altiplano Macro
+### Macro
 **Macro ID:** `unicast-protocols-cfm-linktrace-series-action`
 
 ### Parameters
@@ -98,7 +98,7 @@ This macro initiates the linktrace series test.
 ### vCLI Example
 unicast-protocols-cfm-linktrace-series-action device-id <device> maintenance-group-id MG mep-id 8191 target-mac-address 00-00-00-97-00-07 ltm-ttl 25 ltm-flags use-fdb-only
 
-### Lightspan RPC
+### RPC
 <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
   <action xmlns="urn:ietf:params:xml:ns:yang:1">
     <cfm xmlns="urn:ieee:std:802.1Q:yang:ieee802-dot1q-cfm">
@@ -126,7 +126,7 @@ This macro initiates the abort of the loopback series test.
 - CFM maintenance domain and group must be created along with MEP.
 - lbm originator test must be initiated and ongoing.
 
-### Altiplano Macro
+### Macro
 **Macro ID:** `unicast-protocols-cfm-loopback-abort-action`
 
 ### Parameters
@@ -138,7 +138,7 @@ This macro initiates the abort of the loopback series test.
 ### vCLI Example
 unicast-protocols-cfm-loopback-abort-action device-id <device> maintenance-group-id MG mep-id 8191
 
-### Lightspan RPC
+### RPC
 <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
   <action xmlns="urn:ietf:params:xml:ns:yang:1">
     <cfm xmlns="urn:ieee:std:802.1Q:yang:ieee802-dot1q-cfm">
@@ -161,7 +161,7 @@ This macro initiates the loopback discover test.
 ### Prerequisites
 - CFM maintenance domain and group must be created along with MEP.
 
-### Altiplano Macro
+### Macro
 **Macro ID:** `unicast-protocols-cfm-loopback-discover-action`
 
 ### Parameters
@@ -175,7 +175,7 @@ This macro initiates the loopback discover test.
 ### vCLI Example
 unicast-protocols-cfm-loopback-discover-action device-id <device> maintenance-group-id MG mep-id 8191 inner-tag-priority 7 outer-tag-priority 7
 
-### Lightspan RPC
+### RPC
 <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
   <action xmlns="urn:ietf:params:xml:ns:yang:1">
     <cfm xmlns="urn:ieee:std:802.1Q:yang:ieee802-dot1q-cfm">
@@ -201,7 +201,7 @@ This macro initiates the loopback series test.
 ### Prerequisites
 - CFM maintenance domain and group must be created along with MEP.
 
-### Altiplano Macro
+### Macro
 **Macro ID:** `unicast-protocols-cfm-loopback-series-action`
 
 ### Parameters
@@ -222,7 +222,7 @@ This macro initiates the loopback series test.
 ### vCLI Example
 unicast-protocols-cfm-loopback-series-action device-id <device> maintenance-group-id MG mep-id 8191 dest-ucast-mac-address 00-00-00-97-00-07 message-interval 10 inner-tag-priority 7 inner-tag-drop-eligible true outer-tag-priority 7 outer-tag-drop-eligible true data-tlv Tk9LSUFOT0tJQU5PS0lB tlv-length 64 number-of-messages 5
 
-### Lightspan RPC
+### RPC
 <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
   <action xmlns="urn:ietf:params:xml:ns:yang:1">
     <cfm xmlns="urn:ieee:std:802.1Q:yang:ieee802-dot1q-cfm">
@@ -260,7 +260,7 @@ This macro removes the CFM maintenance domain along with MA, MIP, and/or MEP.
 - CFM maintenance domain configuration should be created.
 - CFM maintenance group that references this maintenance domain should be deleted.
 
-### Altiplano Macro
+### Macro
 **Macro ID:** `unicast-protocols-cfm-md-remove`
 
 ### Parameters
@@ -271,7 +271,7 @@ This macro removes the CFM maintenance domain along with MA, MIP, and/or MEP.
 ### vCLI Example
 unicast-protocols-cfm-md-remove device-id <device> md-id MD
 
-### Lightspan RPC
+### RPC
 <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
   <edit-config>
     <target>
@@ -295,7 +295,7 @@ This macro retrieves CFM maintenance domain profiles along with its MA, MIP, and
 ### Prerequisites
 - CFM maintenance domain configuration should be created.
 
-### Altiplano Macro
+### Macro
 **Macro ID:** `unicast-protocols-cfm-md-retrieve`
 
 ### Parameters
@@ -306,7 +306,7 @@ This macro retrieves CFM maintenance domain profiles along with its MA, MIP, and
 ### vCLI Example
 unicast-protocols-cfm-md-retrieve device-id <device> md-id MD
 
-### Lightspan RPC
+### RPC
 <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
   <get-config>
     <source>
@@ -330,7 +330,7 @@ This macro removes CFM MEPs.
 ### Prerequisites
 - CFM maintenance group with MEPs must be created.
 
-### Altiplano Macro
+### Macro
 **Macro ID:** `unicast-protocols-cfm-mep-remove`
 
 ### Parameters
@@ -370,7 +370,7 @@ This macro creates a CFM maintenance group.
 - CFM maintenance domain should be created (along with MIP and/or MEP).
 - In case of using MIP, forwarder configurations must be created along with user and network VSI.
 
-### Altiplano Macro
+### Macro
 **Macro ID:** `unicast-protocols-cfm-mg-create`
 
 ### Parameters
@@ -390,7 +390,7 @@ This macro creates a CFM maintenance group.
 ### vCLI Example
 unicast-protocols-cfm-mg-create device-id <device> maintenance-group-id MG md-id MD ma-id MA mep-id 8191 direction down mep-state true interface uni1_vsi1 forwarder fwd_common ccm-ltm-priority 3 ccm-ltm-inner-tag-priority 3
 
-### Lightspan RPC
+### RPC
 <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
   <edit-config>
     <target>
@@ -425,7 +425,7 @@ This macro removes a CFM maintenance group.
 ### Prerequisites
 - CFM maintenance group must be created.
 
-### Altiplano Macro
+### Macro
 **Macro ID:** `unicast-protocols-cfm-mg-remove`
 
 ### Parameters
@@ -436,7 +436,7 @@ This macro removes a CFM maintenance group.
 ### vCLI Example
 unicast-protocols-cfm-mg-remove device-id <device> maintenance-group-id MG
 
-### Lightspan RPC
+### RPC
 <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
   <edit-config>
     <target>
@@ -460,7 +460,7 @@ This macro retrieves the CFM maintenance group profile.
 ### Prerequisites
 - CFM maintenance group configuration should be created.
 
-### Altiplano Macro
+### Macro
 **Macro ID:** `unicast-protocols-cfm-mg-retrieve`
 
 ### Parameters
@@ -471,7 +471,7 @@ This macro retrieves the CFM maintenance group profile.
 ### vCLI Example
 unicast-protocols-cfm-mg-retrieve device-id <device> maintenance-group-id MG
 
-### Lightspan RPC
+### RPC
 <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
   <get-config>
     <source>
@@ -495,7 +495,7 @@ This macro retrieves CFM maintenance group state-data and its counter details.
 ### Prerequisites
 - CFM maintenance domain and group must be created.
 
-### Altiplano Macro
+### Macro
 **Macro ID:** `unicast-protocols-cfm-mg-mep-retrieve`
 
 ### Parameters
@@ -506,7 +506,7 @@ This macro retrieves CFM maintenance group state-data and its counter details.
 ### vCLI Example
 unicast-protocols-cfm-mg-mep-retrieve device-id <device> maintenance-group-id MG
 
-### Lightspan RPC
+### RPC
 <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
   <get>
     <filter type="subtree">
@@ -527,7 +527,7 @@ This macro retrieves interface state CFM stack details.
 ### Prerequisites
 - CFM maintenance domain and group must be created.
 
-### Altiplano Macro
+### Macro
 **Macro ID:** `unicast-protocols-cfm-stack-retrieve`
 
 ### Parameters
@@ -538,7 +538,7 @@ This macro retrieves interface state CFM stack details.
 ### vCLI Example
 unicast-protocols-cfm-stack-retrieve device-id <device> md-level 0
 
-### Lightspan RPC
+### RPC
 <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
   <get>
     <filter type="subtree">

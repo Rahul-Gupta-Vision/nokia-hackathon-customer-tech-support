@@ -1,0 +1,189 @@
+Products: Product1, Product2, Product3
+Audience: Network Engineers, QA Teams, Integration Architects
+Document Type: Technical Specification (for internal and partner reference)
+
+-----------------------------------------------------------
+SECTION 1: COMPANY OVERVIEW
+-----------------------------------------------------------
+This is a business unit focused on broadband access, metro aggregation, and service provider routing solutions. Our mission is to deliver carrier-grade networking systems that ensure scalability, reliability, and operational simplicity.
+
+With over a decade of experience in Ethernet, IP/MPLS, and timing technologies, NBN provides a portfolio of products that power broadband networks worldwide. The Product1, Product2, and Product3 are our flagship platforms delivering advanced Layer 2/3 services for residential, enterprise, and 5G backhaul deployments.
+
+-----------------------------------------------------------
+SECTION 2: PRODUCT PORTFOLIO
+-----------------------------------------------------------
+1. Product1 – High-density access switch optimized for Layer 2 aggregation and QoS.
+2. Product2 – Modular fabric platform supporting converged Layer 2/3 and MPLS services.
+3. Product3 – Compact router supporting Layer 3, MPLS, EVPN, and timing protocols.
+
+-----------------------------------------------------------
+SECTION 3: HARDWARE SPECIFICATIONS
+-----------------------------------------------------------
+PRODUCT: Product1
+- 48x1G SFP ports + 4x10G SFP+ uplinks
+- Switching capacity: 176 Gbps
+- Latency: <1.2µs (L2 forwarding)
+- Power: 180W typical
+- MTBF: 280,000 hours
+- Operating Temp: 0–50°C
+- Form Factor: 1RU, fanless variant available
+
+PRODUCT: Product2
+- Modular 8-slot chassis
+- Switching capacity: 2 Tbps full duplex
+- Line cards: 10G, 25G, 40G, 100G
+- Fabric redundancy: N+1 crossbar
+- Dual control plane processors
+- Power: 400W typical
+- Designed for aggregation/core deployment
+
+PRODUCT: Product3
+- 16x10G + 4x40G uplinks
+- Hardware-assisted routing ASIC
+- MPLS and SRv6 acceleration in silicon
+- Power: 350W typical
+- Redundant power and fan modules
+- Dimensions: 2RU
+
+-----------------------------------------------------------
+SECTION 4: SOFTWARE CAPABILITIES
+-----------------------------------------------------------
+All platforms run on the NBN Network OS v3.x framework.
+
+CORE CAPABILITIES
+- Dual-stack IPv4/IPv6
+- VLAN (802.1Q), QinQ (802.1ad), and VLAN translation
+- STP/RSTP/MSTP support
+- LACP (802.3ad) with fast failover
+- MPLS L3VPN/L2VPN and EVPN
+- Segment Routing (SR-MPLS, SRv6)
+- QoS with hierarchical scheduling and shaping
+- DHCP server, relay, and snooping (v4/v6)
+- PTP IEEE 1588v2 and SyncE
+- CFM (802.1ag) and Y.1731 OAM
+- MACsec encryption on user and uplink ports
+- NETCONF/YANG, RESTCONF, and gNMI telemetry
+- Syslog, TACACS+, and RADIUS integration
+
+-----------------------------------------------------------
+SECTION 5: RELEASE HISTORY AND ENHANCEMENTS
+-----------------------------------------------------------
+RELEASE 25.R.1 (Q1 2025)
+- Added LLDP-MED support for Product1.
+- Enhanced CFM MEP scaling (from 256 to 1K).
+- Introduced RESTCONF API for provisioning.
+- Initial DHCPv6 relay implementation.
+
+RELEASE 25.R.2 (Q2 2025)
+- MPLS RSVP-TE with bandwidth reservation.
+- EVPN Type-2 and Type-5 route support.
+- BGP Graceful Restart and LDP auto-discovery.
+- Added QoS CLI enhancements for weighted scheduling.
+
+RELEASE 25.R.3 (Q3 2025)
+- MACsec link encryption for inter-switch uplinks.
+- YANG-based configuration rollback checkpoints.
+- Improved LACP convergence (500ms target).
+- gNMI telemetry streaming per interface.
+
+RELEASE 25.R.4 (Q4 2025)
+- SR-MPLS and Segment Routing policy-based steering.
+- EVPN-VXLAN templates for data center interconnect.
+- IPv6 DHCP prefix delegation and relay optimization.
+- QoS classifier expansion for 64 queues per port.
+
+FUTURE RELEASE 25.R.5 (Q1 2026)
+- SRv6 full forwarding with TI-LFA protection.
+- AI-driven anomaly detection for telemetry analytics.
+- PTP Transparent Clock implementation.
+- ZTP (Zero Touch Provisioning) integration.
+
+FUTURE RELEASE 25.R.6 (Q3 2026)
+- Fabric Manager interoperability (auto-discovery).
+- EVPN multi-homing for Product3.
+- Flow-based microsegmentation for enterprise security.
+- 400G line card support on Product2 (under validation).
+
+-----------------------------------------------------------
+SECTION 6: USE CASES
+-----------------------------------------------------------
+1. **Enterprise Ethernet Service Assurance** — Using CFM/Y.1731 to monitor SLA KPIs.
+2. **Access Aggregation Redundancy** — LACP for link aggregation and failover.
+3. **Broadband IP Allocation** — DHCPv4/v6 relay and option-82 insertion.
+4. **MPLS L3VPN** — Multi-tenant separation for enterprise customers.
+5. **Data Center Interconnect** — EVPN-VXLAN for Layer 2 extension.
+6. **5G Backhaul** — SR-MPLS and PTP for synchronization.
+7. **Metro Aggregation** — QoS prioritization for IPTV and VoIP.
+
+-----------------------------------------------------------
+SECTION 8: COMPATIBILITY MATRIX
+-----------------------------------------------------------
+| Product | Supported OS Versions | Key Features Supported |
+|----------|----------------------|--------------------------|
+| Product1 | v3.0–v3.12 | VLAN, CFM, DHCP, QoS, LACP |
+| Product2 | v3.0–v3.18 | MPLS, EVPN, SRv6, MACsec |
+| Product3 | v3.6–v3.18 | BGP, DHCP, MPLS, PTP |
+
+-----------------------------------------------------------
+SECTION 9: SYSTEM REQUIREMENTS
+-----------------------------------------------------------
+Minimum DRAM: 2 GB
+Flash Storage: 512 MB
+Processor: Dual-core 1.2 GHz
+Management Access: SSH, NETCONF, or RESTCONF
+NBN OS Requirement: v3.0 or above
+
+-----------------------------------------------------------
+SECTION 10: INTEROPERABILITY NOTES
+-----------------------------------------------------------
+- EVPN interoperability tested with Cisco NX-OS 10.x and Juniper MX960.
+- MPLS RSVP tested with Nokia SR 7750.
+- MACsec interop verified with IEEE 802.1AE devices.
+- PTP accuracy verified under mixed vendor network conditions.
+- RESTCONF validated against OpenDaylight controller.
+
+-----------------------------------------------------------
+SECTION 11: PERFORMANCE BENCHMARKS
+-----------------------------------------------------------
+| Metric | Product1 | Product2 | Product3 |
+|--------|--------|--------|----------|
+| MAC Table Size | 32K | 128K | 64K |
+| VLAN Instances | 4K | 8K | 4K |
+| MPLS Labels | N/A | 256K | 128K |
+| LACP Convergence | 500ms | 300ms | 400ms |
+| CFM Sessions | 1K | 2K | 1.5K |
+| SRv6 Throughput | - | 940 Gbps | 320 Gbps |
+
+-----------------------------------------------------------
+SECTION 12: COST ESTIMATE AND OFFERS
+-----------------------------------------------------------
+- Product1 base model: ₹2,85,000
+- Product2 modular chassis: ₹4,20,000
+- Product3 router: ₹3,75,000
+- 10% discount on annual maintenance renewal for 2025.
+- Offer: Buy 5 Product1 units, get one Product3 MPLS license free.
+
+-----------------------------------------------------------
+SECTION 13: UPCOMING FEATURES (2026–2027)
+-----------------------------------------------------------
+- SRv6 enhancement for policy-based steering.
+- 400G fabric integration on Product2.
+- Intent-based automation engine for configuration validation.
+- AI-assisted troubleshooting (closed-loop automation).
+- Deep telemetry analytics with gNMI v2.
+- Enhanced PTP with <250ns synchronization accuracy.
+
+-----------------------------------------------------------
+SECTION 14: APPENDIX – VERSION HISTORY
+-----------------------------------------------------------
+| Release | Quarter | Major Features |
+|----------|----------|----------------|
+| 25.R.1 | Q1 2025 | LLDP-MED, DHCPv6 Relay |
+| 25.R.2 | Q2 2025 | MPLS RSVP, EVPN Type-5 |
+| 25.R.3 | Q3 2025 | MACsec, gNMI Telemetry |
+| 25.R.4 | Q4 2025 | EVPN-VXLAN, SR-MPLS |
+| 25.R.5 | Q1 2026 | SRv6 Full Forwarding |
+| 25.R.6 | Q3 2026 | Fabric Manager Integration |
+
+-----------------------------------------------------------
+END OF DOCUMENT

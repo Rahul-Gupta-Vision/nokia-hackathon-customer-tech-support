@@ -103,43 +103,13 @@ cfm maintenance-group mG100_mD10_L2
 
 
 ## T&D Commands
-Log List for CFM
-
->> log get list
-ID | module name      | level [VALUE]    | format
--------------------------------------------------
-01 | yproto           | YLOG_DEBUG       | %MSG
-02 | platform         | YLOG_INFO        | %MSG
-03 | ytap             | YLOG_WARNING     | %MSG
-04 | CFM              | YLOG_DEBUG       | %MSG
-05 | LogClient        | YLOG_WARNING     | %MSG
-06 | LogClient_oper   | YLOG_WARNING     | %MSG
-07 | cfm              | YLOG_DEBUG       | %MSG
-08 | ypacket_util     | YLOG_WARNING     | %MSG
-09 | ypacket          | YLOG_WARNING     | %MSG
-10 | DMSPLOG          | YLOG_WARNING     | %MSG
-11 | abyss            | YLOG_WARNING     | %MSG
-12 | CRMLOG           | YLOG_WARNING     | %MSG
-13 | OHMLOG           | YLOG_WARNING     | %MSG
-
-ID | output name      | level [VALUE]    | format
--------------------------------------------------
-00 | LOGFILE          | YLOG_CRITICAL    | [%TIME],[%TAG_MODULE_NAME],%MSG (logfile_match=1)
-01 | SYSLOG           | YLOG_WARNING     | %TAG_APP_NAME,%TAG_APP_VERSION,%TAG_MODULE_NAME,%TAG_ENTITY_NAME%TAG_ENTITY_TYPE%TAG_PROTOCOL_NAME%TAG_PROTOCOL_TYPE%MSG (logfile_match=0)
-02 | CONSOLE          | YLOG_INFO        | [%TIME],[%TAG_MODULE_NAME],%MSG (logfile_match=1)
-03 | TNDD             | YLOG_WARNING     | [%TAG_APP_NAME],[%TIME],[%TAG_MODULE_NAME],%MSG (logfile_match=1)
-04 | ERRORFILE        | YLOG_ERROR       | %MSG (logfile_match=0)
-05 | MEMBUF           | YLOG_DISABLED    | [%TIME],[%TAG_MODULE_NAME],%MSG (logfile_match=1)
 
 Enable Logging for CFM Application
 
->> log set module loglevel 1 7
->> log set module loglevel 2 7
->> log set module loglevel 4 7
->> log set module loglevel 7 7
->> log set output loglevel 0 7
->> log set output loglevel 1 7
->> log set output loglevel 2 7
+>> logging module loglevel 1 7
+>> logging module loglevel 2 7
+>> logging module loglevel 4 7
+>> logging module loglevel 7 7
 
 
 
@@ -147,7 +117,6 @@ Enable Logging for CFM Application
 list registered commands for module [cfm]:
 dump
 show
-SetItfCfmMac
 counter
 send
 da
@@ -168,56 +137,16 @@ dump oamrequests : dumps all oam requests with results
 
 >> cfm dump port all
 Dumps the cfm information for all interfaces
-===MEP STATS===
-+---mg-id[1]
-+------mep-id[100]
-+---------mep_lbr_out[0]
-+---------mep_lbr_in[0]
-+---------mep_lbr_in_oo[0]
-+---------mep_lbr_in_bad_msdu[0]
-+---------mep_ltr_in_unexpected[0]
-+---mg-id[2]
-+------mep-id[100]
-+---------mep_lbr_out[0]
-+---------mep_lbr_in[0]
-+---------mep_lbr_in_oo[0]
-+---------mep_lbr_in_bad_msdu[0]
-+---------mep_ltr_in_unexpected[0]
-+---mg-id[3]
-+------mep-id[100]
-+---------mep_lbr_out[0]
-+---------mep_lbr_in[0]
-+---------mep_lbr_in_oo[0]
-+---------mep_lbr_in_bad_msdu[0]
-+---------mep_ltr_in_unexpected[0]
-+---mg-id[4]
-+------mep-id[100]
-+---------mep_lbr_out[0]
-+---------mep_lbr_in[0]
-+---------mep_lbr_in_oo[0]
-+---------mep_lbr_in_bad_msdu[0]
-+---------mep_ltr_in_unexpected[0]
+
 
 >> cfm dump cfm port 2
 dumping for port 2 
 Dumps the cfm information for the given interface 2
-Bucket Entry for the Interface Index: 2, not found
+
 
 >> cfm dump mep stats 1 1
-Dumping the statistics of given mg_id: 1 and mep_id: 1
-+---mg-id[1]
-+------mep-id[1]
-+------lbr-out[0]
 
 >> cfm dump mg stats 1
-Dumping the statistics of all meps in given mg_id:  1
-+---mg-id[1]
-+------mep-id[100]
-+---------mep_lbr_out[0]
-+---------mep_lbr_in[0]
-+---------mep_lbr_in_oo[0]
-+---------mep_lbr_in_bad_msdu[0]
-+---------mep_ltr_in_unexpected[0]
 
 dump mac info <itf>
 
@@ -325,86 +254,17 @@ ING_MEP      ING  MCAST_CLASS2      LTR      DISCARD
 
 >> cfm show lbm pktsnooprules
 dumping lbm rules
-PACKET_LEVEL DIR  MAC_TYPE          OPCODE   PKT_ACTION
-ING_MEP      ING  UCAST_ITF_MAC     LBM      SNOOP
-ING_MEP      ING  UCAST_NOT_ITF_MAC LBM      DISCARD
-ING_MEP      ING  MCAST_CLASS1      LBM      SNOOP
-ING_MEP      ING  MCAST_CLASS2      LBM      DISCARD
-ING_MEP      EGR  UCAST_ITF_MAC     LBM      DISCARD
-ING_MEP      EGR  UCAST_NOT_ITF_MAC LBM      DISCARD
-ING_MEP      EGR  MCAST_CLASS1      LBM      DISCARD
-ING_MEP      EGR  MCAST_CLASS2      LBM      DISCARD
-EGR_MEP      ING  UCAST_ITF_MAC     LBM      DISCARD
-EGR_MEP      ING  UCAST_NOT_ITF_MAC LBM      DISCARD
-EGR_MEP      ING  MCAST_CLASS1      LBM      DISCARD
-EGR_MEP      ING  MCAST_CLASS2      LBM      DISCARD
-EGR_MEP      EGR  UCAST_ITF_MAC     LBM      SNOOP
-EGR_MEP      EGR  UCAST_NOT_ITF_MAC LBM      DISCARD
-EGR_MEP      EGR  MCAST_CLASS1      LBM      SNOOP
-EGR_MEP      EGR  MCAST_CLASS2      LBM      DISCARD
 
 >> cfm show ltm pktsnooprules
 dumping ltm rules
 PACKET_LEVEL DIR  MAC_TYPE          OPCODE   PKT_ACTION
-ING_MEP      ING  UCAST_ITF_MAC     LTM      DISCARD
-ING_MEP      ING  UCAST_NOT_ITF_MAC LTM      DISCARD
-ING_MEP      ING  MCAST_CLASS1      LTM      DISCARD
-ING_MEP      ING  MCAST_CLASS2      LTM      SNOOP
-ING_MEP      EGR  UCAST_ITF_MAC     LTM      DISCARD
-ING_MEP      EGR  UCAST_NOT_ITF_MAC LTM      DISCARD
-ING_MEP      EGR  MCAST_CLASS1      LTM      DISCARD
-ING_MEP      EGR  MCAST_CLASS2      LTM      DISCARD
-EGR_MEP      ING  UCAST_ITF_MAC     LTM      DISCARD
-EGR_MEP      ING  UCAST_NOT_ITF_MAC LTM      DISCARD
-EGR_MEP      ING  MCAST_CLASS1      LTM      DISCARD
-EGR_MEP      ING  MCAST_CLASS2      LTM      DISCARD
-EGR_MEP      EGR  UCAST_ITF_MAC     LTM      DISCARD
-EGR_MEP      EGR  UCAST_NOT_ITF_MAC LTM      DISCARD
-EGR_MEP      EGR  MCAST_CLASS1      LTM      DISCARD
-EGR_MEP      EGR  MCAST_CLASS2      LTM      SNOOP
+
 
 >> cfm show lbr pktsnooprules
 dumping lbr rules
-PACKET_LEVEL DIR  MAC_TYPE          OPCODE   PKT_ACTION
-ING_MEP      ING  UCAST_ITF_MAC     LBR      SNOOP
-ING_MEP      ING  UCAST_NOT_ITF_MAC LBR      DISCARD
-ING_MEP      ING  MCAST_CLASS1      LBR      DISCARD
-ING_MEP      ING  MCAST_CLASS2      LBR      DISCARD
-ING_MEP      EGR  UCAST_ITF_MAC     LBR      DISCARD
-ING_MEP      EGR  UCAST_NOT_ITF_MAC LBR      DISCARD
-ING_MEP      EGR  MCAST_CLASS1      LBR      DISCARD
-ING_MEP      EGR  MCAST_CLASS2      LBR      DISCARD
-EGR_MEP      ING  UCAST_ITF_MAC     LBR      DISCARD
-EGR_MEP      ING  UCAST_NOT_ITF_MAC LBR      DISCARD
-EGR_MEP      ING  MCAST_CLASS1      LBR      DISCARD
-EGR_MEP      ING  MCAST_CLASS2      LBR      DISCARD
-EGR_MEP      EGR  UCAST_ITF_MAC     LBR      SNOOP
-EGR_MEP      EGR  UCAST_NOT_ITF_MAC LBR      DISCARD
-EGR_MEP      EGR  MCAST_CLASS1      LBR      DISCARD
-EGR_MEP      EGR  MCAST_CLASS2      LBR      DISCARD
 
 >> cfm show ltr pktsnooprules
 dumping ltr rules
-PACKET_LEVEL DIR  MAC_TYPE          OPCODE   PKT_ACTION
-ING_MEP      ING  UCAST_ITF_MAC     LTR      SNOOP
-ING_MEP      ING  UCAST_NOT_ITF_MAC LTR      DISCARD
-ING_MEP      ING  MCAST_CLASS1      LTR      DISCARD
-ING_MEP      ING  MCAST_CLASS2      LTR      DISCARD
-ING_MEP      EGR  UCAST_ITF_MAC     LTR      DISCARD
-ING_MEP      EGR  UCAST_NOT_ITF_MAC LTR      DISCARD
-ING_MEP      EGR  MCAST_CLASS1      LTR      DISCARD
-ING_MEP      EGR  MCAST_CLASS2      LTR      DISCARD
-EGR_MEP      ING  UCAST_ITF_MAC     LTR      DISCARD
-EGR_MEP      ING  UCAST_NOT_ITF_MAC LTR      DISCARD
-EGR_MEP      ING  MCAST_CLASS1      LTR      DISCARD
-EGR_MEP      ING  MCAST_CLASS2      LTR      DISCARD
-EGR_MEP      EGR  UCAST_ITF_MAC     LTR      SNOOP
-EGR_MEP      EGR  UCAST_NOT_ITF_MAC LTR      DISCARD
-EGR_MEP      EGR  MCAST_CLASS1      LTR      DISCARD
-EGR_MEP      EGR  MCAST_CLASS2      LTR      DISCARD
-
->> cfm SetItfCfmMac 1 18:4a:6f:5f:9c:9a
-stringMac 18:4a:6f:5f:9c:9a, mac is 18:4A:6F:5F:9C:9A
 
 >> cfm counter reset
 
